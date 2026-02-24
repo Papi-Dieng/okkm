@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Admin – Birthday Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffcdd4;
+    font-family:'Segoe UI', sans-serif;
+    text-align:center;
+}
+.admin-box{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    max-width:400px;
+    width:90%;
+}
+h1{
+    color:#d14b72;
+    margin-bottom:20px;
+}
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff6b81;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin:10px 0;
+    width:100%;
+}
+button:hover{
+    background:#ff4c67;
+}
+small{
+    display:block;
+    margin-top:15px;
+    color:#999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="admin-box">
+    <h1>🔐 Admin Panel</h1>
+
+    <button onclick="goToSite()">🎁 Accéder au site</button>
+    <button onclick="goUnlocked()">🔓 Accès sans lock</button>
+
+    <small>Réservé à l’admin</small>
+</div>
+
+<script>
+function goToSite(){
+    window.location.href = "index.html";
+}
+
+function goUnlocked(){
+    window.location.href = "index.html?admin=true";
+}
+</script>
+
+</body>
+</html>
