@@ -454,7 +454,7 @@ button:active{
   </div>
 </div>
 <!-- Section spéciale -->
-<div class="section" style="margin-top: -200px;">
+<div class="section" style="margin-top: -150px;">
     <div class="special">
         <video src="gif.mp4" autoplay muted loop playsinline></video>
         <h2>💌 Special Message For You</h2>
@@ -465,7 +465,7 @@ button:active{
 </div>
 
 <!-- Reply section -->
-<div class="reply-section" style="margin-top: -200px;">
+<div class="reply-section" style="margin-top: -150px;">
     <h2>Souhaitez-vous répondre ?</h2>
     <textarea id="userResponse" placeholder="Écrivez ici votre réponse..." rows="1"></textarea>
     <br><br>
@@ -668,48 +668,6 @@ window.addEventListener("load", function() {
         audio.play().catch(err => console.log("Lecture audio bloquée :", err));
     }, 2000);
 });
-</script>
-<script type="module">
-// 1. Les imports (garde-les en haut)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-// 2. Ta configuration (UN SEUL BLOC suffit)
-const firebaseConfig = {
-  apiKey: "AIzaSyAfBR9-h1rKYI5L1rMBYYvIp00wW-Qk3_0",
-  authDomain: "birthday-latifa.firebaseapp.com",
-  databaseURL: "https://birthday-latifa-default-rtdb.firebaseio.com",
-  projectId: "birthday-latifa",
-  storageBucket: "birthday-latifa.appspot.com",
-  messagingSenderId: "536631958930",
-  appId: "1:536631958930:web:021329161b62253097f54b"
-};
-
-// 3. L'initialisation (UNE SEULE FOIS)
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// 🔥 Remplace ta fonction sendMessage par celle-ci
-window.sendMessage = async function() {
-    const input = document.getElementById("userResponse");
-
-    if (input.value.trim() === "") return;
-
-    try {
-        await addDoc(collection(db, "messages"), {
-            message: input.value,
-            date: new Date(),
-            userAgent: navigator.userAgent
-        });
-
-        alert("Message envoyé 💌");
-        input.value = "";
-
-    } catch (error) {
-        console.error("Erreur :", error);
-        alert("Erreur d'envoi");
-    }
-};
 </script>
 
 </body>
